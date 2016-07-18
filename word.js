@@ -6,7 +6,7 @@ var computerChoice;
 var wordMeaning;
 var answerWord;
 var curWord = [];
-var guessesLeft = 8;
+var guessesLeft = 15;
 var guessesSoFar = [];
 
 
@@ -107,8 +107,8 @@ var Check = function(guess) {
            console.log(curWord);
 
 		    	 console.log("You loss!")
-
-		  	    
+		    	 console.log("In case you don't know what it means:");
+		    	 console.log("It means" + " " + wordMeaning); 
 		  	   generateRandom(); 
 		  	  	  
 		    };
