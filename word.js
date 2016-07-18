@@ -6,7 +6,7 @@ var computerChoice;
 var wordMeaning;
 var answerWord;
 var curWord = [];
-var guessesLeft = 15;
+var guessesLeft = 12;
 var guessesSoFar = [];
 
 
@@ -25,7 +25,7 @@ var Check = function(guess) {
     randomNumber =  Math.floor(Math.random() * random.randomWords.length);
     computerChoice = random.randomWords[randomNumber].word;
     wordMeaning = random.randomWords[randomNumber].meaning;
-   
+  
     answerWord = computerChoice.split('');
 
 	  if (curWord.indexOf("_")>=0) {
@@ -63,7 +63,7 @@ var Check = function(guess) {
 		    	console.log("You Win!");
 		    	console.log("In case you don't know what it means:");
 		    	console.log("It means" + " " + wordMeaning);
-		    	/*generateRandom();*/
+		    	generateRandom();
 
 		   } else { 
 
@@ -107,8 +107,8 @@ var Check = function(guess) {
            console.log(curWord);
 
 		    	 console.log("You loss!")
-		    	 console.log("In case you don't know what it means:");
-		    	 console.log("It means" + " " + wordMeaning); 
+
+		  	    
 		  	   generateRandom(); 
 		  	  	  
 		    };
