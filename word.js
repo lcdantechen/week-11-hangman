@@ -3,9 +3,10 @@ var random = require('./game.js');
 
 var radonNumber; 
 var computerChoice;
+var wordMeaning;
 var answerWord;
 var curWord = [];
-var guessesLeft = 15;
+var guessesLeft = 8;
 var guessesSoFar = [];
 
 
@@ -23,11 +24,13 @@ var Check = function(guess) {
 		
     randomNumber =  Math.floor(Math.random() * random.randomWords.length);
     computerChoice = random.randomWords[randomNumber].word;
+    wordMeaning = random.randomWords[randomNumber].meaning;
+   
     answerWord = computerChoice.split('');
-   /* console.log(answerWord);*/
-	  if (curWord.indexOf("_")>=0) {
 
-	  	   if (curWord.indexOf(guess)>=0) {
+	  if (curWord.indexOf("_")>=0) {
+       
+				if (curWord.indexOf(guess)>=0) {
 			  	console.log('You guessed this letter already!')
 			  } else if (answerWord.indexOf(guess)>=0) {
 
@@ -53,21 +56,23 @@ var Check = function(guess) {
 			 	      
 		    };
 
-		    if (guessesLeft == 0){
-		    	 console.log("You loss!")
-		  	   console.log('Guess so far are:' + guessesSoFar);  
-		  	  	  
-		    }
+	  	} else if (answerWord == curWord){
+	  		   console.log(answerWord);
+           console.log(curWord);
+     
+		    	console.log("You Win!");
+		    	console.log("In case you don't know what it means:");
+		    	console.log("It means" + " " + wordMeaning);
+		    	/*generateRandom();*/
 
-
-		} else {
+		   } else { 
 
 		  	 for (var i =0;i<answerWord.length;i++) {
 				   curWord.push('_');
 			   };
-/*
-     var function letterMatch() {}
-*/				if (curWord.indexOf(guess)>=0) {
+
+
+				if (curWord.indexOf(guess)>=0) {
 			  	console.log('You guessed this letter already!')
 			  } else if (answerWord.indexOf(guess)>=0) {
 
@@ -93,14 +98,22 @@ var Check = function(guess) {
 			 	      
 		    };
 
-		    if (guessesLeft == 0){
-		    	 console.log("You loss!")
-		  	   console.log('Guess so far are:' + guessesSoFar);  
-		  	  	  
-		    }
-
   
      };
+
+       if (guessesLeft == 0){
+
+		    	 console.log(answerWord);
+           console.log(curWord);
+
+		    	 console.log("You loss!")
+
+		  	    
+		  	   generateRandom(); 
+		  	  	  
+		    };
+
+		    
 	};
 
 };
